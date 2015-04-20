@@ -1,0 +1,154 @@
+[app/ui]
+version = 6.2.2
+modtime = 1426871140.552653000
+
+[app/launcher]
+version = 6.2.2
+modtime = 1426871140.558250000
+
+[nav/default]
+version = 6.2.2
+modtime = 1426870431.216454000
+
+[views/Main]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426870842.811615000
+
+[savedsearches/Top%20Honeypot%20Types]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426859483.305771000
+
+[savedsearches/Top%20MHN%20MD5s]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426859596.174135000
+
+[savedsearches/Top%20MHN%20Attackers]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426859637.992356000
+
+[savedsearches/Top%20MHN%20Attacked%20Ports]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426859685.007259000
+
+[savedsearches/Top%20MHN%20Sensors]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426859717.173520000
+
+[savedsearches/Top%20MHN%20p0f%20OSes]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426859743.750207000
+
+[savedsearches/Top%20MHN%20p0f%20Apps]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426859768.205512000
+
+[savedsearches/Top%20MHN%20p0f%20links]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426859790.365160000
+
+[savedsearches/Top%20MHN%20Signatures]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426859829.953530000
+
+[savedsearches/Top%20MHN%20Attacker%20Cities]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426859892.101354000
+
+[savedsearches/Top%20MHN%20Honeypot%20Types]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426859953.262423000
+
+[savedsearches/MHN%20Attacker%20Geo%20Map]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426860021.168464000
+
+[savedsearches/MHN%20Event%20Count%20Chart]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426860061.674626000
+
+[views/p0f_analytics]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426869040.189965000
+
+[views/kippo_analytics]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426869087.295380000
+
+[views/dionaea_analytics]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426868985.755969000
+
+[views/snortsuricata_analytics]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426869923.052625000
+
+[views/indicators]
+access = read : [ * ], write : [ * ]
+export = none
+owner = admin
+version = 6.2.2
+modtime = 1426870796.970085000
+
+[]
+access = read : [ * ], write : [ * ]
+export = none
+version = 6.2.2
+modtime = 1426871130.338644000
+
+[app/package/check_for_updates]
+version = 6.2.2
+modtime = 1426871140.561364000
