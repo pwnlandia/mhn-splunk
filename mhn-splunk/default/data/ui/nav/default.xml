@@ -1,10 +1,11 @@
 <nav color="#1d3b54">
     <view name="overview" />
-    <view name="indicators" />  
+    <view name="indicators" />
     <view name="dionaea_analytics" />
     <view name="p0f_analytics" />
     <view name="kippo_analytics" />
     <view name="snortsuricata_analytics" />
     <view name="shockpot_analytics" />
     <view name="conpot_analytics" />
+    <view name="elastichoney_analytics" />
 </nav>
