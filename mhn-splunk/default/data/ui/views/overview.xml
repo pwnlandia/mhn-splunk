@@ -9,57 +9,119 @@
       </default>
     </input>
   </fieldset>
-  <row grouping="5">
-    <single>
-      <search>
-        <query>source="*mhn-splunk.log*" | timechart span=24h count | reverse</query>
-        <earliest>-48h</earliest>
-      </search>
-      <option name="field">count</option>
-      <option name="linkView">search</option>
-      <option name="drilldown">none</option>
-      <option name="afterLabel">Attacks</option>
-    </single>
-    <single>
-      <search>
-        <query>source="*mhn-splunk.log*" |timechart distinct_count(src) as count span=24h | reverse</query>
-        <earliest>-48h</earliest>
-      </search>
-      <option name="field">count</option>
-      <option name="linkView">search</option>
-      <option name="drilldown">none</option>
-      <option name="afterLabel">Unique Attackers</option>
-    </single>
-    <single>
-      <search>
-        <query>source="*mhn-splunk.log*" md5=* |timechart distinct_count(md5) as count span=24h | reverse</query>
-        <earliest>-48h</earliest>
-      </search>
-      <option name="field">count</option>
-      <option name="linkView">search</option>
-      <option name="drilldown">none</option>
-      <option name="afterLabel">Unique MD5s</option>
-    </single>
-    <single>
-      <search>
-        <query>source="*mhn-splunk.log*" url=* |timechart distinct_count(url) as count span=24h | reverse</query>
-        <earliest>-48h</earliest>
-      </search>
-      <option name="field">count</option>
-      <option name="linkView">search</option>
-      <option name="drilldown">none</option>
-      <option name="afterLabel">Unique URLs</option>
-    </single>
-    <single>
-      <search>
-        <query>source="*mhn-splunk.log*" command=* app=kippo | timechart span=24h count | reverse</query>
-        <earliest>-48h</earliest>
-      </search>
-      <option name="field">count</option>
-      <option name="linkView">search</option>
-      <option name="drilldown">none</option>
-      <option name="afterLabel">Commands Executed</option>
-    </single>
+  <row>
+    <panel>
+      <single>
+        <title>Attacks</title>
+        <search>
+          <query>source="*mhn-splunk.log*" | timechart span=24h count | reverse</query>
+          <earliest></earliest>
+          <latest></latest>
+        </search>
+        <option name="colorBy">trend</option>
+        <option name="colorMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0x65a637","0xd93f3c"]</option>
+        <option name="rangeValues">[0]</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">inverse</option>
+        <option name="trendDisplayMode">percent</option>
+        <option name="trendInterval">-24h</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">1</option>
+        <option name="useThousandSeparators">1</option>
+      </single>
+      <single>
+        <title>Unique Attacks</title>
+        <search>
+          <query>source="*mhn-splunk.log*" |timechart distinct_count(src) as count span=24h | reverse</query>
+          <earliest></earliest>
+          <latest></latest>
+        </search>
+        <option name="colorBy">trend</option>
+        <option name="colorMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0x65a637","0xd93f3c"]</option>
+        <option name="rangeValues">[0]</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">inverse</option>
+        <option name="trendDisplayMode">percent</option>
+        <option name="trendInterval">-24h</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">1</option>
+        <option name="useThousandSeparators">1</option>
+      </single>
+      <single>
+        <title>Unique MD5s</title>
+        <search>
+          <query>source="*mhn-splunk.log*" md5=* |timechart distinct_count(md5) as count span=24h | reverse</query>
+          <earliest></earliest>
+          <latest></latest>
+        </search>
+        <option name="colorBy">trend</option>
+        <option name="colorMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0x65a637","0xd93f3c"]</option>
+        <option name="rangeValues">[0]</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">inverse</option>
+        <option name="trendDisplayMode">percent</option>
+        <option name="trendInterval">-24h</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">1</option>
+        <option name="useThousandSeparators">1</option>
+      </single>
+      <single>
+        <title>Unique URLs</title>
+        <search>
+          <query>source="*mhn-splunk.log*" url=* |timechart distinct_count(url) as count span=24h | reverse</query>
+          <earliest></earliest>
+          <latest></latest>
+        </search>
+        <option name="colorBy">trend</option>
+        <option name="colorMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0x65a637","0xd93f3c"]</option>
+        <option name="rangeValues">[0]</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">inverse</option>
+        <option name="trendDisplayMode">percent</option>
+        <option name="trendInterval">-24h</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">1</option>
+        <option name="useThousandSeparators">1</option>
+      </single>
+      <single>
+        <title>Commands Executed</title>
+        <search>
+          <query>source="*mhn-splunk.log*" command=* app=kippo | timechart span=24h count | reverse</query>
+          <earliest></earliest>
+          <latest></latest>
+        </search>
+        <option name="colorBy">trend</option>
+        <option name="colorMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0x65a637","0xd93f3c"]</option>
+        <option name="rangeValues">[0]</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">inverse</option>
+        <option name="trendDisplayMode">percent</option>
+        <option name="trendInterval">-24h</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">1</option>
+        <option name="useThousandSeparators">1</option>
+      </single>
+    </panel>
   </row>
   <row>
     <panel>
