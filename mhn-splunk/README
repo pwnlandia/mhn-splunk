@@ -1,0 +1,26 @@
+Modern Honey Network Splunk App
+
+The Modern Honey Network Splunk App is a set of purpose built dashboards and reports leveraging honeypot data collected by the Modern Honey Network (https://github.com/threatstream/mhn) and hpfeeds-logger (https://github.com/threatstream/hpfeeds-logger).
+
+Installation
+
+* Open Splunk
+* Visit the Apps management page
+* Click "Install App from file"
+* Choose the mhn-splunk.spl file and check the box next to "Upgrade app. Checking this will overwrite the app if it already exists."
+* Click the "Upload" button.
+
+REQUIREMENTS
+
+key/value formatted data from honeypots, ingested from a file named mhn-splunk.log.  Most users accomplish this using a Modern Honeynet Deployment, configured with hpfeed-logger configured with Spunk's log formatter.
+
+LICENSE
+
+Copyright (C) 2016 - Anomali Inc.
+
+This program free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+
