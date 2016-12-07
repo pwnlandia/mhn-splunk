@@ -14,7 +14,7 @@
       <chart>
         <title>Events Per Hour</title>
         <search>
-          <query>source="*mhn-splunk.log*" type="elastichoney.events" | timechart span=1h count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type="elastichoney.events" | timechart span=1h count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -47,7 +47,7 @@
       <map>
         <title>Global Attacks</title>
         <search>
-          <query>source="*mhn-splunk.log*" type="elastichoney.events" | iplocation src | geostats count by src globallimit=20</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type="elastichoney.events" | iplocation src | geostats count by src globallimit=20</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -69,7 +69,7 @@
       <chart>
         <title>Top Attacker Countries</title>
         <search>
-          <query>source="*mhn-splunk.log*" type="elastichoney.events" | iplocation src | top Country</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type="elastichoney.events" | iplocation src | top Country</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -103,7 +103,7 @@
       <chart>
         <title>Top Signatures</title>
         <search>
-          <query>source="*mhn-splunk.log*" type="elastichoney.events" |  top signature | fields signature, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type="elastichoney.events" |  top signature | fields signature, count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -138,7 +138,7 @@
       <chart>
         <title>Top Attacker Cities</title>
         <search>
-          <query>source="*mhn-splunk.log*" type="elastichoney.events" | iplocation src | where City!="" | top City</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type="elastichoney.events" | iplocation src | where City!="" | top City</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -176,7 +176,7 @@
       <table>
         <title>Top Attackers</title>
         <search>
-          <query>source="*mhn-splunk.log*" type="elastichoney.events" | rename event.* as * | rex field=src mode=sed s/::ffff:// | chart sparkline as Sparkline, count by src | rename src as Source | sort 10 -count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type="elastichoney.events" | rename event.* as * | rex field=src mode=sed s/::ffff:// | chart sparkline as Sparkline, count by src | rename src as Source | sort 10 -count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -200,7 +200,7 @@
       <table>
         <title>Top Attack Payloads</title>
         <search>
-          <query>source="*mhn-splunk.log*" type="elastichoney.events" | rex field=_raw "getRuntime\(\)\.exec\((?&lt;command&gt;.[^\)]+)" | eval decoded=urldecode(command) | top decoded | fields decoded,count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type="elastichoney.events" | rex field=_raw "getRuntime\(\)\.exec\((?&lt;command&gt;.[^\)]+)" | eval decoded=urldecode(command) | top decoded | fields decoded,count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -215,7 +215,7 @@
       <table>
         <title>Top Sensors</title>
         <search>
-          <query>source="*mhn-splunk.log*" type="elastichoney.events" | top sensor, app | fields sensor, app, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type="elastichoney.events" | top sensor, app | fields sensor, app, count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>

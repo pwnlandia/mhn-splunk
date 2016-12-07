@@ -14,7 +14,7 @@
       <table>
         <title>Top MD5s Captured</title>
         <search>
-          <query>source="*mhn-splunk.log*" md5=* | top md5 limit=50 | fields md5, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" md5=* | top md5 limit=50 | fields md5, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -45,7 +45,7 @@
       <table>
         <title>Top URLs Captured</title>
         <search>
-          <query>source="*mhn-splunk.log*" (type=dionaea.capture OR type=kippo.sessions) url=* | top url limit=50 | fields url, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" (type=dionaea.capture OR type=kippo.sessions) url=* | top url limit=50 | fields url, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -60,7 +60,7 @@
       <table>
         <title>Top Attackers</title>
         <search>
-          <query>source="*mhn-splunk.log*"  | top src limit=50 |  iplocation src | fields src, Country, count | fillnull value=Unknown Country | eval DShield="DShield"</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*"  | top src limit=50 |  iplocation src | fields src, Country, count | fillnull value=Unknown Country | eval DShield="DShield"</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>

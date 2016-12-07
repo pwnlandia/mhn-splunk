@@ -14,7 +14,7 @@
       <chart>
         <title>p0f Events per Hour</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=p0f.events | timechart span=1h count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=p0f.events | timechart span=1h count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -47,7 +47,7 @@
       <table>
         <title>Top p0f OSes</title>
         <search>
-          <query>source="*mhn-splunk.log*" p0f_os=* | where p0f_os!="???" |  top p0f_os | fields p0f_os, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" p0f_os=* | where p0f_os!="???" |  top p0f_os | fields p0f_os, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -62,7 +62,7 @@
       <table>
         <title>Top p0f Apps</title>
         <search>
-          <query>source="*mhn-splunk.log*" p0f_app=* | where p0f_app!="???" |  top p0f_app | fields p0f_app, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" p0f_app=* | where p0f_app!="???" |  top p0f_app | fields p0f_app, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -77,7 +77,7 @@
       <table>
         <title>Top p0f Links</title>
         <search>
-          <query>source="*mhn-splunk.log*" p0f_link=* | where p0f_link!="???" | top p0f_link | fields p0f_link, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" p0f_link=* | where p0f_link!="???" | top p0f_link | fields p0f_link, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -94,7 +94,7 @@
       <table>
         <title>Top p0f Attackers</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=p0f.events | top src | fields src, count | iplocation src | fields src, Country, count | fillnull value=unknown Country | eval DShield="DShield"</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=p0f.events | top src | fields src, count | iplocation src | fields src, Country, count | fillnull value=unknown Country | eval DShield="DShield"</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -139,7 +139,7 @@
       <table>
         <title>Top Ports</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=p0f.events | top dest_port | fields dest_port, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=p0f.events | top dest_port | fields dest_port, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -154,7 +154,7 @@
       <table>
         <title>Top Sensors</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=p0f.events | top sensor | fields sensor, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=p0f.events | top sensor | fields sensor, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -171,7 +171,7 @@
       <event>
         <title>p0f Events</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=p0f.events</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=p0f.events</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>

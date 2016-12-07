@@ -16,11 +16,25 @@ This builds a tarball named `mhn-splunk.tar.gz`.
 
 ## Installation
 
+### On Splunk Search Head
+
 1. Open Splunk
 2. Visit the Apps management page
 3. Click "Install App from file"
 4. Choose the `mhn-splunk.spl` file and check the box next to "Upgrade app. Checking this will overwrite the app if it already exists."
 5. Click the "Upload" button.
+
+### On Splunk Forwarder
+
+If your Splunk Indexer resides on a different server to the one you installed MHN, you will need to install a Splunk Forwarder to send MHN data from the MHN Server > Splunk.
+
+1. Download and unpack the app to `SPLUNK_FORWARDER/etc/apps`
+2. Copy `SPLUNK_FORWARDER/etc/apps/mhn-splunk/default/inputs.conf` to `SPLUNK_FORWARDER/etc/apps/mhn-splunk/local`
+3. Edit `SPLUNK_FORWARDER/etc/apps/mhn-splunk/local/inputs.conf` and change `disabled=true` to `disabled=false`
+4. Configure an `output.conf` file to tell the Splunk Forwarder where to send the data.
+4. Restart Splunk
+
+### Notes: [please ensure you have configured Splunk integration as documented here first](https://github.com/threatstream/mhn).
 
 ## LICENSE
 

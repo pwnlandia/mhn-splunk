@@ -14,7 +14,7 @@
       <chart>
         <title>Shockpot Events per Hour</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=shockpot.events | timechart span=1h count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=shockpot.events | timechart span=1h count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -47,7 +47,7 @@
       <table>
         <title>Top MD5s</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=shockpot.events md5=* | top md5 | fields md5, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
+          <query>index=mhn sourcetype= source="*mhn-splunk.log*" type=shockpot.events md5=* | top md5 | fields md5, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -78,7 +78,7 @@
       <table>
         <title>Top SHA1s</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=shockpot.events sha1=* | top sha1 | fields sha1, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
+          <query>index=mhn sourcetype= source="*mhn-splunk.log*" type=shockpot.events sha1=* | top sha1 | fields sha1, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -109,7 +109,7 @@
       <table>
         <title>Top SHA256s</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=shockpot.events sha256=* | top sha256 | fields sha256, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
+          <query>index=mhn sourcetype= source="*mhn-splunk.log*" type=shockpot.events sha256=* | top sha256 | fields sha256, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -142,7 +142,7 @@
       <table>
         <title>Top Shockpot Attackers</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=shockpot.events | top src | iplocation src | fields src, Country, count | fillnull value=unknown Country | eval DShield="DShield"</query>
+          <query>index=mhn sourcetype= source="*mhn-splunk.log*" type=shockpot.events | top src | iplocation src | fields src, Country, count | fillnull value=unknown Country | eval DShield="DShield"</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -187,7 +187,7 @@
       <table>
         <title>Top URLs Downloaded</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=shockpot.events url=* | top url | fields url, count</query>
+          <query>index=mhn sourcetype= source="*mhn-splunk.log*" type=shockpot.events url=* | top url | fields url, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -202,7 +202,7 @@
       <table>
         <title>Top Sensors</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=shockpot.events | top sensor | fields sensor, count</query>
+          <query>index=mhn sourcetype= source="*mhn-splunk.log*" type=shockpot.events | top sensor | fields sensor, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -219,7 +219,7 @@
       <event>
         <title>Shockpot Events</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=shockpot.events</query>
+          <query>index=mhn sourcetype= source="*mhn-splunk.log*" type=shockpot.events</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>

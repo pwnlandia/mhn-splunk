@@ -14,7 +14,7 @@
       <chart>
         <title>Sensor Events per Hour</title>
         <search>
-          <query>source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | timechart span=1h count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | timechart span=1h count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -47,7 +47,7 @@
       <table>
         <title>Top Sources</title>
         <search>
-          <query>source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top src | iplocation src | fields src, Country, count | fillnull value=Unknown Country | eval DShield="DShield"</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top src | iplocation src | fields src, Country, count | fillnull value=Unknown Country | eval DShield="DShield"</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -92,7 +92,7 @@
       <table>
         <title>Top Destinations</title>
         <search>
-          <query>source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top dest | iplocation dest | fields dest, Country, count | fillnull value=Unknown Country</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top dest | iplocation dest | fields dest, Country, count | fillnull value=Unknown Country</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -128,7 +128,7 @@
       <table>
         <title>Top Source Ports</title>
         <search>
-          <query>source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top src_port | fields src_port, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top src_port | fields src_port, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -143,7 +143,7 @@
       <table>
         <title>Top Destination Ports</title>
         <search>
-          <query>source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top dest_port | fields dest_port, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top dest_port | fields dest_port, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -160,7 +160,7 @@
       <table>
         <title>Top Sensors</title>
         <search>
-          <query>source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top sensor, app | fields sensor, app, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top sensor, app | fields sensor, app, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -175,7 +175,7 @@
       <table>
         <title>Top Protocols</title>
         <search>
-          <query>source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top protocol | fields protocol, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top protocol | fields protocol, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -190,7 +190,7 @@
       <table>
         <title>Top Severities</title>
         <search>
-          <query>source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top severity | fields severity, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top severity | fields severity, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -205,7 +205,7 @@
       <table>
         <title>Top Signatures</title>
         <search>
-          <query>source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top signature | fields signature, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts) | top signature | fields signature, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -222,7 +222,7 @@
       <event>
         <title>Snort/Suricata Events</title>
         <search>
-          <query>source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts)</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" (type=snort.alerts OR type=suricata.alerts)</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>

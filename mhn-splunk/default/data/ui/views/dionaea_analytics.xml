@@ -14,7 +14,7 @@
       <chart>
         <title>Dionaea Events per Hour</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=dionaea.connections | timechart span=1h count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=dionaea.connections | timechart span=1h count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -47,7 +47,7 @@
       <table>
         <title>Top MD5s Captured</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=dionaea.capture md5=* | top md5 | fields md5, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=dionaea.capture md5=* | top md5 | fields md5, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -78,7 +78,7 @@
       <table>
         <title>Top URLs Captured</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=dionaea.capture url=* | top url | fields url, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=dionaea.capture url=* | top url | fields url, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -95,7 +95,7 @@
       <table>
         <title>Top Dionaea Attackers</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=dionaea.connections | top src |  iplocation src | fields src, Country, count | fillnull value=Unknown Country | eval DShield="DShield"</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=dionaea.connections | top src |  iplocation src | fields src, Country, count | fillnull value=Unknown Country | eval DShield="DShield"</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -140,7 +140,7 @@
       <table>
         <title>Top Ports</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=dionaea.connections | top dest_port | fields dest_port, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=dionaea.connections | top dest_port | fields dest_port, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -155,7 +155,7 @@
       <table>
         <title>Top Sensors</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=dionaea.connections | top sensor | fields sensor, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=dionaea.connections | top sensor | fields sensor, count</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>
@@ -172,7 +172,7 @@
       <event>
         <title>Dionaea Events</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=dionaea.connections</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=dionaea.connections</query>
           <earliest>$time_range.earliest$</earliest>
           <latest>$time_range.latest$</latest>
         </search>

@@ -14,7 +14,7 @@
       <single>
         <title>Attacks</title>
         <search>
-          <query>source="*mhn-splunk.log*" | timechart span=24h count | reverse</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" | timechart span=24h count | reverse</query>
           <earliest></earliest>
           <latest></latest>
         </search>
@@ -36,7 +36,7 @@
       <single>
         <title>Unique Attacks</title>
         <search>
-          <query>source="*mhn-splunk.log*" |timechart distinct_count(src) as count span=24h | reverse</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" |timechart distinct_count(src) as count span=24h | reverse</query>
           <earliest></earliest>
           <latest></latest>
         </search>
@@ -58,7 +58,7 @@
       <single>
         <title>Unique MD5s</title>
         <search>
-          <query>source="*mhn-splunk.log*" md5=* |timechart distinct_count(md5) as count span=24h | reverse</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" md5=* |timechart distinct_count(md5) as count span=24h | reverse</query>
           <earliest></earliest>
           <latest></latest>
         </search>
@@ -80,7 +80,7 @@
       <single>
         <title>Unique URLs</title>
         <search>
-          <query>source="*mhn-splunk.log*" url=* |timechart distinct_count(url) as count span=24h | reverse</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" url=* |timechart distinct_count(url) as count span=24h | reverse</query>
           <earliest></earliest>
           <latest></latest>
         </search>
@@ -102,7 +102,7 @@
       <single>
         <title>Commands Executed</title>
         <search>
-          <query>source="*mhn-splunk.log*" command=* app=kippo | timechart span=24h count | reverse</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" command=* app=kippo | timechart span=24h count | reverse</query>
           <earliest></earliest>
           <latest></latest>
         </search>
@@ -127,7 +127,7 @@
     <panel>
       <chart>
         <search>
-          <query>source="*mhn-splunk.log*" | timechart span=1h count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" | timechart span=1h count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -160,7 +160,7 @@
       <map>
         <title>Global Attacks</title>
         <search>
-          <query>source="*mhn-splunk.log*" | iplocation src | geostats count by src globallimit=20</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" | iplocation src | geostats count by src globallimit=20</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -182,7 +182,7 @@
       <chart>
         <title>Top Attacker Countries</title>
         <search>
-          <query>source="*mhn-splunk.log*" | iplocation src | top Country</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" | iplocation src | top Country</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -216,7 +216,7 @@
       <chart>
         <title>Top Attacker Cities</title>
         <search>
-          <query>source="*mhn-splunk.log*" | iplocation src | where City!="" | top City</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" | iplocation src | where City!="" | top City</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -252,7 +252,7 @@
       <chart>
         <title>Top Honeypots by type</title>
         <search>
-          <query>source="*mhn-splunk.log*" | top type</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" | top type</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -288,7 +288,7 @@
       <chart>
         <title>Top Ports</title>
         <search>
-          <query>source="*mhn-splunk.log*" | top dest_port | fields dest_port, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" | top dest_port | fields dest_port, count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -326,7 +326,7 @@
       <table>
         <title>Top Attackers</title>
         <search>
-          <query>source="*mhn-splunk.log*" | rename event.* as * | rex field=src mode=sed s/::ffff:// | chart sparkline as Sparkline, count by src | rename src as Source | sort 10 -count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" | rename event.* as * | rex field=src mode=sed s/::ffff:// | chart sparkline as Sparkline, count by src | rename src as Source | sort 10 -count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -350,7 +350,7 @@
       <table>
         <title>Top Attacker OSes</title>
         <search>
-          <query>source="*mhn-splunk.log*" p0f_os=* | where p0f_os!="???" |  top p0f_os | fields p0f_os, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" p0f_os=* | where p0f_os!="???" |  top p0f_os | fields p0f_os, count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -363,7 +363,7 @@
       <table>
         <title>Top Usernames</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=kippo.sessions ssh_username=* | top ssh_username | fields ssh_username, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=kippo.sessions ssh_username=* | top ssh_username | fields ssh_username, count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -399,7 +399,7 @@
       <table>
         <title>Top Passwords</title>
         <search>
-          <query>source="*mhn-splunk.log*" type=kippo.sessions ssh_password=* | top ssh_password | fields ssh_password, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" type=kippo.sessions ssh_password=* | top ssh_password | fields ssh_password, count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -416,7 +416,7 @@
       <table>
         <title>Top Sensors</title>
         <search>
-          <query>source="*mhn-splunk.log*" | top sensor, app | fields sensor, app, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" | top sensor, app | fields sensor, app, count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -452,7 +452,7 @@
       <table>
         <title>Top Md5's</title>
         <search>
-          <query>source="*mhn-splunk.log*" AND md5 != None | top md5 | fields md5, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" AND md5 != None | top md5 | fields md5, count | eval VirusTotal="VirusTotal" | eval TotalHash="TotalHash"</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -483,7 +483,7 @@
       <table>
         <title>Top URLs</title>
         <search>
-          <query>source="*mhn-splunk.log*" url=* |  top url, app | fields url, app, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" url=* |  top url, app | fields url, app, count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -498,7 +498,7 @@
       <table>
         <title>Top Signatures</title>
         <search>
-          <query>source="*mhn-splunk.log*" |  top signature | fields signature, count</query>
+          <query>index=mhn sourcetype=mhn-splunk-kv source="*mhn-splunk.log*" |  top signature | fields signature, count</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
