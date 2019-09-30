@@ -1,6 +1,6 @@
 # Modern Honey Network Splunk App
 
-The Modern Honey Network Splunk App is a set of purpose built dashboards and reports leveraging honeypot data collected by the [Modern Honey Network](https://github.com/threatstream/mhn) and [hpfeeds-logger](https://github.com/threatstream/hpfeeds-logger).
+The Modern Honey Network Splunk App is a set of purpose built dashboards and reports leveraging honeypot data collected by the [Modern Honey Network](https://github.com/Pwnlandia/mhn) and [hpfeeds-logger](https://github.com/Pwnlandia/hpfeeds-logger).
 
 ![overview](screenshots/overview.png)
 
@@ -25,8 +25,6 @@ This builds a tarball named `mhn-splunk.tar.gz`.
 ## LICENSE
 
 mhn-splunk
-
-Copyright (C) 2015 - ThreatStream Inc.
 
 This program free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
